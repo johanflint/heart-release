@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.3 (2026-09-17)
+
+### Other
+
+- Merge pull request #6 from johanflint/feature/releases
+
 ## v0.0.2 (2026-09-17)
 
 ### Bug Fixes

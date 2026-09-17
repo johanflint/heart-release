@@ -1,0 +1,20 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tag and publish release
+        run: npx --yes release-svp@0.1.0 release --repo-url ${{ github.repository }} --token ${{ secrets.GITHUB_TOKEN }} --release-type rust
+      # Opens/updates the PR for the *next* release
+      - name: Prepare next release
+        run: npx --yes release-svp@0.1.0 prepare --repo-url ${{ github.repository }} --token ${{ secrets.GITHUB_TOKEN }} --release-type rust
